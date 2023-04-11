@@ -1,23 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  {% include 'includes/connections.html' %}
-  <title>
-  {% block title %}{% endblock %}
-  </title>
-</head>
+  <head>
+    {% include 'includes/connections.html' %}
+    <title>
+      {% block title %}{% endblock %}
+    </title>
+  </head>
 
-<body>
+  <body>
     <div class="spinner"></div>
-     {% include 'includes/header.html' %} 
-    {%block content %} {% endblock %}
+    {% include 'includes/header.html' %}
+ 
+    {% block content %}{% endblock %}
 
 
     <footer>
-      {% include 'includes/footer.html' %} 
+      {% include 'includes/footer.html' %}
+ 
     </footer>
     <script type="text/javascript" src="{% static "/js/bootstrap.js" %}"></script>
-    
-</body>
+ 
+  </body>
 </html>
