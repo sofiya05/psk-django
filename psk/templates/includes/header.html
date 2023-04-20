@@ -21,15 +21,13 @@
               <ul class="nav sf-menu">
  
                 <li>
-                  <a class="active" href="{% url "products:about" %}">О нас</a>
+                  <a class="active" href="{% url "about:about" %}">О нас</a>
                 </li>
  
                 <li class="sub-menu">
                   <a href="">Продукция</a>
                   <ul>
-                    <li>
-                      <a href="{% url "products:plazma" %}">Плазма</a>
-                    </li>
+ 
                     <li>
                       <a href="{% url "products:lazer" %}">Лазер</a>
                     </li>
@@ -40,7 +38,7 @@
                 </li>
  
                 <li>
-                  <a href="{% url "products:about" %}">Контакты</a>
+                  <a href="{% url "about:about" %}">Контакты</a>
                 </li>
  
               </ul>
@@ -99,7 +97,7 @@
                   <img src="{% static "img/page1-img1.jpg" %}" alt="">
                   <section>
 
-                    <a class="btn btn-1" href="{% url "products:plazma" %}">Подробнее</a>
+ 
                   </section>
                 </div>
               </li>
