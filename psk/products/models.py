@@ -1,25 +1,14 @@
 from django.db import models
 
-
-class Types(models.Model):
-    type_name = models.CharField('Тип', max_length=20)
-
-    class Meta:
-        verbose_name = 'Типы'
-
-    def __str__(self) -> str:
-        return self.type_name
+TYPES = [
+    ('ls', 'Лазер'),
+    ('pl', 'Плазма'),
+    ('wd', 'Сварка'),
+]
 
 
 class Company(models.Model):
-    company_name = models.TextField('Имя компании', unique=True)
-    company_type = models.ForeignKey(
-        Types,
-        on_delete=models.CASCADE,
-        name='Тип',
-        related_name='company_types',
-        default=0,
-    )
+    company_name = models.CharField('Имя компании', max_length=200)
 
     class Meta:
         verbose_name = 'Компании'
@@ -30,19 +19,29 @@ class Company(models.Model):
 
 class Modl(models.Model):
     model_name = models.CharField('Имя модели', max_length=500)
-    model_type = models.ForeignKey(
-        Types,
-        on_delete=models.CASCADE,
-        name='Тип модели',
-        related_name='modl_types',
-        default=0,
+    model_type = models.CharField(
+        'Тип',
+        max_length=10,
+        choices=TYPES,
+        default='ls',
+        help_text='На какой странице будет отображаться модель',
     )
     company_name = models.ForeignKey(
         Company,
         on_delete=models.CASCADE,
         name='Имя компании',
-        related_name='company',
-        default=0,
+        related_name='models',
+    )
+    model_slug = models.SlugField(
+        'Ссылка на модель',
+        blank=True,
+        unique=True,
+        help_text='Ссылка, по которой будут доступны расходники к модели (можно оставить пустым)',
+    )
+    show_in_psk = models.BooleanField(
+        'Показать на сайте plazmapsk',
+        default=False,
+        help_text='Настройка отображения на сайте',
     )
 
     class Meta:
@@ -50,6 +49,14 @@ class Modl(models.Model):
 
     def __str__(self) -> str:
         return self.model_name
+
+    def save(self, *args, **kwargs):
+        if not self.model_slug:
+            for char in self.model_name:
+                if char == ' ':
+                    char = '_'
+                self.model_slug += char
+        super().save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -62,10 +69,15 @@ class Product(models.Model):
         Modl,
         on_delete=models.CASCADE,
         name='Модель оборудования',
-        null=True,
+        default=0,
         related_name='models',
     )
-    img = models.ImageField('Изображение', upload_to='products/', null=True)
+    img = models.ImageField(
+        'Изображение',
+        upload_to='products/',
+        null=True,
+        help_text='Изображение расходника',
+    )
 
     class Meta:
         verbose_name = 'Продукты'

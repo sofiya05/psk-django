@@ -31,8 +31,9 @@
               {% for model in models %}
                 <td width = "35%">
                   <p style: "text-align: center;">
-                    <!-- <img src = "{{ product.img.url }}" height = "50%", width = "50%"><br> -->
-                    {{ model.model_name }}
+                    {% if model.company_name == "ht" %} 
+                    <a href="{% url "products:products" model.model_slug %}"> {{ model.model_name }} </a>
+                    {% endif %}
                     <br>
                   </p>
                 </td>

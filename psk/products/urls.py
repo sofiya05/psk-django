@@ -7,8 +7,9 @@ app_name = 'products'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('products/models/<slug:company>/', views.Modls, name='plazma'),
-    path('products/lazer', views.Lazer, name='lazer'),
-    path('products/welding', views.Welding, name='welding'),
-    path('test/', views.test, name='test'),
+   # path('products/plazma/', views.Plazma, name='plazma'),
+    path('products/<str:type>/', views.Test, name='test'),
+    path('products/plazma/<slug:slug>', views.Products, name = 'products'),
+    path('products/lazer/', views.Lazer, name='lazer'),
+    path('products/welding/', views.Welding, name='welding'),
 ]

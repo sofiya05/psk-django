@@ -1,32 +1,27 @@
 from django.shortcuts import render, get_object_or_404
 
-from django.http import HttpResponse
 
-
-from .models import Product, Modl, Company
+from .models import Product, Modl
 
 
 def index(request):
     return render(request, 'products/index.html')
 
 
-def Modls(request, company):
-    modl = get_object_or_404(Company, company_name=company)
-    modls = modl.company.all()
-    context = {'models': modls}
+def Products(request, slug):
+    modl = get_object_or_404(Modl, model_slug=slug, show_in_psk=True)
+    products = modl.products.all()
+
+    context = {
+        'modl': modl,
+        'products': products,
+    }
+
+    return render(request, 'products/products.html', context)
+
+
+def Test(request, type):
+    models = Modl.objects.filter(model_type=type).filter(show_in_psk=True)
+    context = {'models': models}
+
     return render(request, 'products/plazma.html', context)
-
-
-def Lazer(request):
-    return render(request, 'products/lazer.html')
-
-
-def Welding(request):
-    return render(request, 'products/welding.html')
-
-
-def test(request):
-    products = Product.objects.all()
-
-    context = {'products': products}
-    return render(request, 'products/test.html', context)

@@ -3,9 +3,6 @@
   <div class="container clearfix">
     <div class="row">
       <div class="span12">
-        <section id="login" style="text-align:right;">
-          <a href="/Account/Login" id="loginLink">Выполнить вход</a>
-        </section>
         <div class="navbar navbar_">
           <div class="container">
             <h1 class="brand brand_">
@@ -25,9 +22,11 @@
                 </li>
  
                 <li class="sub-menu">
-                  <a href="">Продукция</a>
+                  <a>Продукция</a>
                   <ul>
- 
+                    <li>
+                      <a href="{% url "products:test" "pl" %}">Плазма</a>
+                    </li>
                     <li>
                       <a href="{% url "products:lazer" %}">Лазер</a>
                     </li>
@@ -97,7 +96,7 @@
                   <img src="{% static "img/page1-img1.jpg" %}" alt="">
                   <section>
 
- 
+                    <a class="btn btn-1" href="{% url "products:test" "pl" %}">Подробнее</a>
                   </section>
                 </div>
               </li>
@@ -106,7 +105,7 @@
                   <section>
                     <strong>Лазер</strong>
                   </section>
-                  <img src="{% static "img/page1-img2.jpg" %}" alt="">
+                  <img src="{% static "img/lazer.jpg" %}" alt="">
                   <section>
  
                     <a class="btn btn-1" href="{% url "products:lazer" %}">Подробнее</a>
@@ -120,7 +119,17 @@
                   </section>
                   <img src="{% static "img/page1-img3.jpg" %}" alt="">
                   <section>
- 
+                    <a class="btn btn-1" href="{% url "products:welding" %}">Подробнее</a>
+                  </section>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail thumbnail-1">
+                  <section>
+                    <strong>Все расходники</strong>
+                  </section>
+                  <img src="{% static "img/page1-img2.jpg" %}" alt="">
+                  <section>
                     <a class="btn btn-1" href="{% url "products:welding" %}">Подробнее</a>
                   </section>
                 </div>
