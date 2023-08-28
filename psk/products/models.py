@@ -1,14 +1,24 @@
 from django.db import models
 
-TYPES = [
-    ('ls', 'Лазер'),
-    ('pl', 'Плазма'),
-    ('wd', 'Сварка'),
-]
+
+class Type(models.Model):
+    type_name = models.CharField('Название типа', max_length=50)
+    type_name_russian = models.CharField(
+        'Название типа на русском', max_length=50
+    )
+
+    class Meta:
+        verbose_name = 'Типы оборудования'
+
+    def __str__(self) -> str:
+        return self.type_name_russian
 
 
 class Company(models.Model):
-    company_name = models.CharField('Имя компании', max_length=200)
+    company_name = models.SlugField('Имя компании', max_length=200)
+    available_types = models.ManyToManyField(
+        Type, related_name='companys', verbose_name='Доступные типы'
+    )
 
     class Meta:
         verbose_name = 'Компании'
@@ -19,17 +29,16 @@ class Company(models.Model):
 
 class Modl(models.Model):
     model_name = models.CharField('Имя модели', max_length=500)
-    model_type = models.CharField(
-        'Тип',
-        max_length=10,
-        choices=TYPES,
-        default='ls',
-        help_text='На какой странице будет отображаться модель',
+    model_type = models.ForeignKey(
+        Type,
+        on_delete=models.CASCADE,
+        verbose_name='Тип модели',
+        related_name='models',
     )
     company_name = models.ForeignKey(
         Company,
         on_delete=models.CASCADE,
-        name='Имя компании',
+        verbose_name='Компания',
         related_name='models',
     )
     model_slug = models.SlugField(
@@ -68,9 +77,8 @@ class Product(models.Model):
     modl = models.ForeignKey(
         Modl,
         on_delete=models.CASCADE,
-        name='Модель оборудования',
-        default=0,
-        related_name='models',
+        verbose_name='Модель оборудования',
+        related_name='products',
     )
     img = models.ImageField(
         'Изображение',

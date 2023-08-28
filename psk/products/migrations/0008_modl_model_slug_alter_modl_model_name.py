@@ -12,7 +12,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="modl",
             name="model_slug",
-            field=models.SlugField(null=True, verbose_name="Сссылка на модель"),
+            field=models.SlugField(
+                null=True, verbose_name="Сссылка на модель"
+            ),
         ),
         migrations.AlterField(
             model_name="modl",

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if type.type_name == "plazma" %}
+Плазма
+{% elif type.type_name == "lazer" %}
+Лазер
+{% elif type.type_name == "welding" %}
+Сварка
+{% endif %}
+{% endblock title %}
+
+
+{% block content %}
+<div class = "container marketing">
+    <div class = "row text-center text-danger">
+        <p><h1>Мы готовы предложить вам расходные детали для {{ tp }} оборудования {{ company }}:</h1></p>
+    </div>
+<div class="row">
+    {% for model in models %}
+    <div class="col-lg-4">
+      <h3 class="fw-normal">{{ model.model_name }}</h3>
+      <p>Описание</p>
+      <p><a class="btn btn-secondary" href="{% url "products:products" type.type_name company model.model_slug %}">Продукция »</a></p>
+    </div>
+    {% endfor %}
+
+    <hr class="featurette-divider">
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,118 +1,38 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
 
 {% block title %}
-  О нас
+Наши контакты
 {% endblock title %}
 
+<div class = "container">
+    
+</div>
+
+
 {% block content %}
- 
-
-  <div class="container">
-    <div class="row">
-      <hgroup class="title">
-        <h1>Контакты.</h1>
-
-      </hgroup>
-      <article class="span12">
-
- 
-        <div class="display-field">
-          <table style="width: 824px;
-                        height: 229px"
-                 border="0"
-                 cellpadding="0"
-                 cellspacing="0">
-            <tbody>
-              <tr>
-                <td valign="top" width="235">
-                  <p style="text-align: left;">
-                    Организационно-правовая форма и фирменное наименование
-                  </p>
-                </td>
-                <td valign="top" width="235">
-                  <p style="text-align: left;"></p>
-                </td>
-                <td style="text-align: left;" valign="top" width="431">
-                  <p>
-                    Общество с Ограниченной&nbsp; Ответственностью&nbsp; &laquo;ПлазмаСнабКомплект&raquo;
-                  </p>
-                  <p>(ООО &laquo;ПлазмаСнабКомплект&raquo;)</p>
-                  <p>&nbsp;</p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" width="235">
-                  <p>Юридический адрес</p>
-                </td>
-                <td valign="top" width="235">
-                  <p></p>
-                </td>
-                <td valign="top" width="431">
-                  <p>220089, г. Минск, ул. Гурского 37, офис 5Н, комната №18/11</p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" width="235">
-                  <p>Фактическое местонахождение</p>
-                </td>
-                <td valign="top" width="235">
-                  <p></p>
-                </td>
-                <td valign="top" width="431">
-                  <p>220131, Минск, ул. Гамарника, д30, офис 353</p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" width="235">
-                  <p>Телефон/факс Участника (с указанием кода города)</p>
-                </td>
-                <td valign="top" width="235">
-                  <p></p>
-                </td>
-                <td valign="top" width="431">
-                  <p>8 (029) 656 61 94,</p>
-                  <p>
-                    <span>8 (017)322 12 64</span>,
-                  </p>
-                  <p>
-                    <span>8 (017)322 12 65</span>
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" width="235">
-                  <p>Адрес электронной почты</p>
-                </td>
-                <td valign="top" width="235">
-                  <p></p>
-                </td>
-                <td valign="top" width="431">
-                  <p>plazmapsk@gmail.com</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2347.5741537404206!2d27.60320221625646!3d53.957071280111485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcf4f16cabfe5%3A0xd4da9740234733f2!2z0YPQuy4g0JPQsNC80LDRgNC90LjQutCwIDMwLCDQnNC40L3RgdC6!5e0!3m2!1sru!2sby!4v1485878064860"
-                  width="600"
-                  height="450"
-                  frameborder="0"
-                  style="border:0"
-                  allowfullscreen></iframe>
-        </div>
-      </article>
+<div class = "container">
+    <div class = "row">
+        <p class = "text-center"><b>Наши контакты:</b></p>
+    </div>
+    <div class = "row">
+        <div class = "col-6"><p>Организационно-правовая форма и фирменное наименование:</p></div>
+        <div class = "col-6 text-end"><p>Общество с Ограниченной  Ответственностью  «ПлазмаСнабКомплект» (ООО «ПлазмаСнабКомплект»)</p></div>
+        <div class = "col-6"><p>Юридический адрес:</p></div>
+        <div class = "col-6 text-end"><p>220089, г. Минск, ул. Гурского 37, офис 5Н, комната №18/11</p></div>
+        <div class = "col-6"><p>Фактическое местонахождение:</p></div>
+        <div class = "col-6 text-end"><p>220131, Минск, ул. Гамарника, д30, офис 353</p></div>
+        <div class = "col-6"><p>Телефон/факс Участника (с указанием кода города):</p></div>
+        <div class = "col-6 text-end"><p><a href = "tel:+375296566194">8 (029) 656 61 94</a>, <a href = "tel:+375173221264"> 8 (017) 322 12 64</a>, <a href = "tel:+375173221265">8 (017) 322 12 65</a></p></div>
+        <div class = "col-6"><p>Адрес электронной почты:</p></div>
+        <div class = "col-6 text-end"><p><a href = "mailto:plazmapsk@gmail.com">plazmapsk@gmail.com</a></p></div>
     </div>
 
- 
+    <hr class="featurette-divider">
+    
+<p class = "text-center"><b>Мы на карте</b></p>
 
-  </div>
-</div>
- 
- 
-</div>
 
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0b0446832a69380e719dd382bb09e7227dbc0e28bb6983d5e2077aa5c05fbb4c&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+<hr class="featurette-divider">
+</div>
 {% endblock content %}

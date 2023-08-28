@@ -1,0 +1,54 @@
+ {% load static %}
+
+ <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src = "{% static "img/slide-4.jpg" %}" class = "img-fluid"></img>
+            <img src = "{% static "img/bg-content.jpg" %}" class = "img-fluid transparent50"></img>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Плазма</h1>
+                <p>Плазменная резка – один из наиболее эффективных методов термического раскроя металла. Аппараты для плазменной резки являются высокотехнологичными машинами. Не последнюю роль в качестве и комфорте их эксплуатации играют расходные части. Являясь официальным дилером крупнейшего мирового производителя плазменного оборудования и расходных частей к нему компании HYPERTHERM и ее дочерней компании Centricut, мы имеем возможность поставлять плазменные комплектующие высочайшего качества. Вот неполный перечень резаков различных производителей, комплектуемых данными расходными частями.</p>
+                <p><a class="btn btn-lg btn-primary" href="{% url "products:company" "plazma" %}">Подробнее</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src = "{% static "img/slide-2.jpg" %}" class = "img-fluid"></img>
+            <img src = "{% static "img/bg-content.jpg" %}" class = "img-fluid transparent50"></img>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Лазер</h1>
+                <p>Компания «ПлазмаСнабКомплект» занимается поставкой расходных материалов для оборудования лазерной резки.
+                  Расходные материалы, приобретаемые в нашей компании обеспечивают отличные характеристики резки при самых низких затратах. Приобретаемые расходные детали обладают хорошей точностью и неизменностью характеристик при каждом заказе.</p>
+                <p><a class="btn btn-lg btn-primary" href="{% url "products:company" "lazer" %}">Подробнее</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src = "{% static "img/slide-3.jpg" %}" class = "img-fluid"></img>
+            <img src = "{% static "img/bg-content.jpg" %}" class = "img-fluid transparent50"></img>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Сварка</h1>
+                <p>Компания «ПлазмаСнабКомплект» имеет возможность поставлять расходные материалы для сварочного оборудования.
+                  Сварочные расходные детали, приобретаемые у нашей компании отличаются качественным исполнением и не высокими ценами.</p>
+                <p><a class="btn btn-lg btn-primary" href="{% url "products:company" "welding" %}">Подробнее</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>

@@ -1,55 +1,39 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
 
 {% block title %}
-  Расходные материалы для {{ modl.model_name }}
+{{ model.model_name }}
 {% endblock title %}
 
+
 {% block content %}
+<div class = "container marketing">
+    <div class = "row text-center text-danger">
+        <p><h2>Расходные детали для оборудования {{ model.model_name }}</h2></p>
+    </div>
+</div>
 
+<div class="album py-5 bg-light">
   <div class="container">
-    <div class="row">
-      <hgroup class="title">
-        <h1> Предлагаем вам приобрести расходные детали для оборудования {{ modl.model_name }}</h1>
 
-      </hgroup>
-      <article class="span12">
-
-
-        <div class="display-field">
-          <div>
- 
-            <table align = "center">
-              <tr>
-                {% for product in products %}
-                  <td width = "35%">
-                    <p style: "text-align: center;">
-                      <img src = "{{ product.img.url }}" height = "50%", width = "50%">
-                      <br>
-                      {{ product.name }}
-                      <br>
-                      Артикул: {{ product.article }}
-                    </p>
-                  </td>
-                  {% if forloop.counter|divisibleby:3 %}
-                  </tr>
-                  <tr>
-                  {% endif %}
-                  {% if forloop.last %}</tr>{% endif %}
-              {% endfor %}
-            </table>
- 
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for product in products %}
+      <div class="col">
+        <div class="card shadow-sm"> 
+          <img src = "{{ product.img.url }}" class = "card-img-top img-fluid"></img>
+          <div class="card-body">
+            <p class = "card-text text-center"><b>{{ product.name }}</b></p>
+            <p class="card-text">{{ product.description }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Артикул: {{ product.article }}</small>
+            </div>
           </div>
         </div>
-      </article>
+      </div>
+      {% endfor %}
+
+
     </div>
-
-
-
   </div>
-</div>
- 
- 
 </div>
 
 {% endblock content %}

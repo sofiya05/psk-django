@@ -1,29 +1,9 @@
-{% load static %}
+<p class="float-end"><a href="#">Вверх</a></p>
+<div class = "container">
+<p> Контакты: </p>
+<p> Адрес: 220131 г. Минск ул Гамарника, д 30(БЦ "зеленый луг") офис 353</p>
 
-<div class="container">
-
-
-  <div class="span6">
-    <a href="{% url "about:about" %}">Контакты</a>
-    <div style="color:#0e0e0e">
- 
-      <div>
-        <p>Адрес: 220131 г. Минск ул Гамарника, д 30(БЦ "зеленый луг") офис 353</p>
-      </div>
-      <div>
-        <p>
-          Телефоны: 8 (029) 656 61 94,
-          8 (017)322 12 64, 8 (017)322 12 65
-        </p>
-      </div>
- 
-      <p>
-        Email: <a href="">plazmapsk@gmail.com</a>
-      </p>
-    </div>
-  </div>
- 
-  <div class="span5">
-    <div class="privacy pull-left">{{ year }} — ООО «ПлазмаСнабКомплект»</div>
-  </div>
+<p> Телефоны: <a href = "tel:+375296566194">8 (029) 656 61 94</a>, <a href = "tel:+375173221264"> 8 (017) 322 12 64</a>, <a href = "tel:+375173221265">8 (017) 322 12 65</a></p>
+<p>Email: <a href = "mailto:plazmapsk@gmail.com">plazmapsk@gmail.com</a></p>
+<p class = "text-center"><b>&copy; {{ year }} ООО "ПлазмаСнабКомплект"</b></p>
 </div>
