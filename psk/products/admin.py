@@ -20,7 +20,12 @@ class ValidateForm(forms.ModelForm):
                 )
             return cleaned_data
         except:
-            raise ValidationError('Проверьте правильноть введенных данных!')
+            raise ValidationError('Проверьте правильноcть введенных данных!')
+
+
+class CompanyAdmin(admin.ModelAdmin):
+    search_fields = ('company_name',)
+    search_help_text = 'Поиск по имени компании'
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -52,11 +57,16 @@ class ModlAdmin(admin.ModelAdmin):
         'model_name',
         'model_type',
         'company_name',
-        'show_in_psk',
     )
+    search_fields = (
+        'model_name',
+        'model_type',
+        'company_name',
+    )
+    search_help_text = 'Можно искать по имени, типу и компании'
 
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Company)
+admin.site.register(Company, CompanyAdmin)
 admin.site.register(Modl, ModlAdmin)
 admin.site.register(Type)

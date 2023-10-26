@@ -47,11 +47,6 @@ class Modl(models.Model):
         unique=True,
         help_text='Ссылка, по которой будут доступны расходники к модели (можно оставить пустым)',
     )
-    show_in_psk = models.BooleanField(
-        'Показать на сайте plazmapsk',
-        default=False,
-        help_text='Настройка отображения на сайте',
-    )
 
     class Meta:
         verbose_name = 'Модели'
